@@ -2,7 +2,7 @@
 > Sayur Kemudian Lebih Latih
 
 ## Solution
-For this challenge, we are given a zip file contains ```sayur.png```. The picture itself didnt seem interesting so I immediately thought of steganography. I tried several tools such as ```steghide```, ```binwalk``` and ```exiftool``` but nothing interesting. Then, I used ```zsteg``` and I found a text string that repeating certain words which are ```Kemudian```, ```Sayur```, ```Banyak```, ```Latih```. The sequence of the words seems random at first and not following the description of the challenge. But when analyzed further, it can be interpreted as binary digits.
+For this challenge, we are given a zip file contains <a href="/images/sayur.png">sayur.png</a>. The picture itself didnt seem interesting so I immediately thought of steganography. I tried several tools such as ```steghide```, ```binwalk``` and ```exiftool``` but nothing interesting. Then, I used ```zsteg``` and I found a text string that repeating certain words which are ```Kemudian```, ```Sayur```, ```Banyak```, ```Latih```. The sequence of the words seems random at first and not following the description of the challenge. But when analyzed further, it can be interpreted as binary digits.
 
 Since we have 4 words, we can deduce that the bits for each word would be either ```00```, ```01```, ```10``` or ```11```. But the question is, how to determine which bits for each words? 
 
