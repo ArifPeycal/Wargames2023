@@ -4,16 +4,27 @@
 ## Solution
 For this challenge, we are given a zip file contains <a href="https://github.com/ArifPeycal/Wargames2023-Writeups/blob/main/Sayur/images/sayur.png">sayur.png</a>. The picture itself didnt seem interesting so I immediately thought of steganography. I tried several tools such as ```steghide```, ```binwalk``` and ```exiftool``` but nothing interesting. Then, I used ```zsteg``` and I found a text string that repeating certain words which are ```Kemudian```, ```Sayur```, ```Banyak```, ```Latih```. 
 
+<p align="center">
+  <img width="80%" height="300" src="images/sayur5.PNG">
+</p>
+
 Extract the text into a text file
 ```
 zsteg -E "b2,rgba,lsb,xy" file.png > sayur.txt
 ```
 
-<br>
-The sequence of the words seems random at first and not following the description of the challenge. But when analyzed further, it can be interpreted as binary digits.
-Since we have 4 words, we can deduce that the bits for each word would be either ```00```, ```01```, ```10``` or ```11```. But the question is, how to determine which bits for each words? 
 
-The hint is actually this challenge description.
+The sequence of the words seems random at first and not following the description of the challenge. But when analyzed further, it can be interpreted as binary digits.
+Since we have 4 words, we can deduce that the bits for each word would be either ```00```, ```01```, ```10``` or ```11```. 
+
+
+But the question is, how to determine which bits for each words? 
+
+<p align="center">
+  <img width="80%" height="350" src="https://media1.tenor.com/m/VWbwqhXAS7gAAAAC/hmmm-thinking.gif">
+</p>
+
+The hint is actually at this challenge description. By refering the description, we get 
 
 ```
 Sayur: 00
