@@ -47,7 +47,8 @@ Practice: 11
 At this stage, Cyberchef cant decode the binary strings automatically into readable text. So, maybe the characters are not English alphabets. From the original image, we can see a picture of a man with Chinese subtitles at the bottom of image. 
 
 But wait, there are also 4 Chinese characters on the subtitle. So, I tried using Google Lens to translate the characters and suprisingly, the characters translate into ```Vegetable```,```Then```,```Many``` and ```Practice```.
-![Alt text](images/sayur.PNG)
+
+![Alt text](images/sayur.png)
 
 
 ```
