@@ -4,9 +4,8 @@
 ## Solution
 For this challenge, we are given a zip file contains <a href="https://github.com/ArifPeycal/Wargames2023-Writeups/blob/main/Sayur/images/sayur.png">sayur.png</a>. The picture itself didnt seem interesting so I immediately thought of steganography. I tried several tools such as ```steghide```, ```binwalk``` and ```exiftool``` but nothing interesting. Then, I used ```zsteg``` and I found a text string that repeating certain words which are ```Kemudian```, ```Sayur```, ```Banyak```, ```Latih```. 
 
-<p align="center">
-  <img width="80%" height="300" src="images/sayur5.PNG">
-</p>
+![Alt text](images/sayur5.PNG)
+
 
 Extract the text into a text file
 ```
@@ -20,9 +19,8 @@ Since we have 4 words, we can deduce that the bits for each word would be either
 
 But the question is, how to determine which bits for each words? 
 
-<p align="center">
-  <img width="80%" height="350" src="https://media1.tenor.com/m/VWbwqhXAS7gAAAAC/hmmm-thinking.gif">
-</p>
+![Alt text](https://media1.tenor.com/m/VWbwqhXAS7gAAAAC/hmmm-thinking.gif)
+
 
 The hint is actually at this challenge description. By refering the description, we get 
 
@@ -34,9 +32,7 @@ Latih: 11
 ```
 By using Cyberchef Find and Replace feature, we can decode the text strings as a binary strings which then can be translated into a new text strings. The new text strings contain words such as ```Then```, ```Vegetable```, ```Practice``` and ```Many```. 
 
-<p align="center">
-  <img width="80%" height="400" src="images/sayur2.PNG">
-</p>
+![Alt text](images/sayur2.PNG)
 
 Just repeat the previous method and we can get another binary strings.
 ```
@@ -46,17 +42,13 @@ Many: 10
 Practice: 11
 ```
 
-
-<p align="center">
-  <img width="80%" height="400" src="images/sayur3.PNG">
-</p>
+![Alt text](images/sayur3.PNG)
 
 At this stage, Cyberchef cant decode the binary strings automatically into readable text. So, maybe the characters are not English alphabets. From the original image, we can see a picture of a man with Chinese subtitles at the bottom of image. 
 
 But wait, there are also 4 Chinese characters on the subtitle. So, I tried using Google Lens to translate the characters and suprisingly, the characters translate into ```Vegetable```,```Then```,```Many``` and ```Practice```.
-<p align="center">
-  <img width="80%" height="400" src="images/sayur.png">
-</p>
+![Alt text](images/sayur.PNG)
+
 
 ```
 素 (vegetable): 00
@@ -64,9 +56,8 @@ But wait, there are also 4 Chinese characters on the subtitle. So, I tried using
 多 (many): 10
 练 (practice): 11
 ```
-<p align="center">
-  <img width="80%" height="400" src="images/sayur4.PNG">
-</p>
+![Alt text](images/sayur4.PNG)
+
 
 ## Flag
 The flag for this challenge is ```wgmy{0cec1062809ad4e393f0acbfa895f29f}```
