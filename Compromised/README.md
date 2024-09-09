@@ -34,7 +34,7 @@ Asking ChatGPT, I found out that the files are `RDP Bitmap Cache`.
 - Reusing Cached Bitmaps: Once the bitmap is cached, if the same or similar graphical element appears again, the RDP client can pull it from the local cache rather than requesting the server to resend the data. This reduces network bandwidth usage and speeds up screen refresh rates.
 
 ## Solution
-We can use BMCTools to parse the `RDP Bitmap Cache`. 
+We can use <a href="https://github.com/ANSSI-FR/bmc-tools">BMCTools</a> to parse the `RDP Bitmap Cache`. 
 
 ```
 python3 bmc-tools.py -s Cache0000.bin -d parsed -b
@@ -46,7 +46,7 @@ We can see the password for zip file but the images are quite messy.
 
 ![image](https://github.com/user-attachments/assets/02a3fb7e-f328-4046-9639-b0a6c9f79ef7)
 
-We can use `RdpCacheStitcher`, an open source GUI tools that allows us to construct bitmap by dragging and dropping the images. After constructing the bitmap, we get the password for zip file.
+We can use <a href="https://github.com/BSI-Bund/RdpCacheStitcher?tab=readme-ov-file">RdpCacheStitcher</a>, an open source GUI tools that allows us to construct bitmap by dragging and dropping the images. After constructing the bitmap, we get the password for zip file.
 
 ```
 WGMY_P4ssw0rd_N0t_V3ry_H4rd!!!
