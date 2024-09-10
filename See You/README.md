@@ -4,7 +4,7 @@
 
 ## Challenge Overview
 
-We were give `artifact.pcapng` to analyze. Upon inspection, we can see a huge percentage of `TCP/TLS` packets with some `HTTP` packets. From my previous experience, we need to have secret master key in order to decrypt TLS traffic. Since the challenge didnt give that file, so the solution most probably not related to `TCP`.
+We were give `artifact.pcapng` to analyze. Upon inspection, we can see a huge percentage of `TLS` packets with some `HTTP` packets. From my previous experience, we need to have secret master key in order to decrypt TLS traffic. Since the challenge didnt give that file, so the solution most probably not related to `HTTP` since the content would probably be encrypted.
 
 ![image](https://github.com/user-attachments/assets/1012ece3-5a8b-4adc-bebe-f7c9d5d9014f)
 
