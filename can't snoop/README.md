@@ -24,7 +24,7 @@ There is also another expression `EX2` which contains `00 00 00 20 85 2a 94 8d 1
     00000010  69 b0 3f 4b 72 ea d7 88  20 bf 64 75 58 f9 46 cc   i.?Kr...  .duX.F.
     00000020  94 9e f7 97 63 0d b9 85  4f 08 6f                  ....c... O.o
 ```
-`EX3` followed the same format as `EX2`,  `00 00 03 eb` (client_id) followed by `00 00 00 1e f6 14 52 c2 39 5c 2f 6a a3 17 fc 7a 6b 27 19 6e 90 83 a1 67 27 cb 81 05 14 99 53 08 50 86 45 58 33 00 00 03 eb 00  00 00 02 27 d3`. The length for `K3` is `00 00 00 1e` (30 bytes).
+`EX3` followed the same format as `EX2`,  `00 00 03 eb` (client_id) followed by `00 00 00 1e f6 14 52 c2 39 5c 2f 6a a3 17 fc 7a 6b 27 19 6e 90 83 a1 67 27 cb 81 05 14 99 53 08 50 86`. The length for `K3` is `00 00 00 1e` (30 bytes).  The server reply with `00 00 03 eb 00 00 00 02 27 d3`.
 
 ```
 00000000  45 58 33 00 00 03 eb 00  00 00 1e f6 14 52 c2 39   EX3..... .....R.9
@@ -32,18 +32,17 @@ There is also another expression `EX2` which contains `00 00 00 20 85 2a 94 8d 1
 00000020  cb 81 05 14 99 53 08 50  86                        .....S.P .
     00000000  45 58 33 00 00 03 eb 00  00 00 02 27 d3            EX3..... ...'.
 ```
-We can use CyberChef to get `K3` by converting from hex, use decrypt RC4 using  
-```
-00000000  4c 53 54 00 00 03 eb 00  00 00 01 47               LST..... ...G
-    00000000  4c 53 54 00 00 03 eb 00  00 00 09 0e f4 23 4e 53   LST..... .....#NS
-    00000010  8c 16 83 b7                                        ....
-```
-```
-00000000  47 45 54 00 00 03 eb 00  00 00 08 0e f4 23 4b 53   GET..... .....#KS
-00000010  8c 16 83                                           ...
-    00000000  45 52 52 00 00 03 eb 00  00 00 0f 49 6e 76 61 6c   ERR..... ...Inval
-    00000010  69 64 20 63 6f 6d 6d 61  6e 64                     id comma nd
-```
+We can use CyberChef to get `K` by converting from hex, use decrypt RC4 using this formula, `K = RC4(K3, K2)`.
+
+The function `K = RC4(K3, K2)` implies that:
+
+- `K3` is the ciphertext or some intermediate value produced by applying the `RC4` algorithm.
+- `K2` is the key that was used to encrypt or generate the pseudorandom keystream using `RC4`.
+
+We get `K` as `69 ff 76 8b 77 b9 b1 c6 fb 0c 09 00 56 e4 90 c0 cb 97 7d 25 78 b0 16 d6 04 04 15 1d 78 76`. Use `K` for decryption. 
+
+![image](https://github.com/user-attachments/assets/9c89df6c-e11a-4b44-afc6-bdab6724b57e)
+
 ```
 00000000  47 45 54 00 00 03 eb 00  00 00 08 0e f4 23 4e 53   GET..... .....#NS
 00000010  8c 16 83                                           ...
@@ -51,4 +50,10 @@ We can use CyberChef to get `K3` by converting from hex, use decrypt RC4 using
     00000010  9c 08 c7 8a cc 04 c7 c3  8d 26 f6 3b b2 f9 f0 c6   ........ .&.;....
     00000020  12 05 e5 74 db bc 79 67  77 e1 50 38 b2 66 f0 3e   ...t..yg w.P8.f.>
     00000030  fd 78                                              .x
+```
+![image](https://github.com/user-attachments/assets/0cc88db4-af1f-4a99-a89a-070e3f776532)
+
+## Flag
+```
+wgmy{df07e73edae297a5edc637c41a119de5}
 ```
